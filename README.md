@@ -8,6 +8,23 @@
 ## Database setup
 - users: usernames, passwords, first name , last name, and membership status
 - messages: title, body and timestamp
+
+### DB schema
+#### Users table
+- primary key
+- username
+- first name
+- last name
+- password
+- membership status (non-member or member).
+
+#### Messages table
+- primary key
+- message title
+- message body
+- creation date
+- fk_users
+
 ## UI/UX
 - landing on sign-up/ sign-in form
     - sanitized and validated.
