@@ -1,12 +1,16 @@
+require('dotenv').config();
 const path = require("node:path");
 const express = require("express");
+
+
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
-require('dotenv').config();
-
 
 const app = express();
+
+const messagesRouter = require('./routes/messagesRouter');
+const usersRouter = require('./routes/usersRouter');
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -19,12 +23,8 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
 
-app.get("/", (req, res) => {
-    if(!req.query.createUser){
-        res.render("index", {form: "login"})
-    }else{
-        res.render("index", {form: "createUser"})
-    }
-});
+app.use('/', usersRouter);
+app.use('/messages', messagesRouter);
+
 
 app.listen(3000, () => console.log("app listening: http://localhost:3000"));
