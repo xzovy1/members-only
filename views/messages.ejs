@@ -9,20 +9,21 @@
     <% if(messages.length > 0){ %>
         <h1>Messages</h1>
         <div class="messages">
-
-           <% messages.map(message => { %>
-                <div class="message">
-                    <p><%= message.username %>:</p>
-                    <h4><%= message.title %></h4>
-                    <p><%= message.body %></p>
-                    <p><%= message.date_time %></p>
-                </div>
-           <% }) %>
+          <%- include("partials/messagesList") %>
         </div>
-   <% } else { %>
+    <% } else { %>
     <h1>No Messages</h1>
-    <div>Share your thoughts</div>
     <% } %>
-    <%- include("partials/newMessage") %>
+    <% if(user.is_member){ %>
+        <div>Share your thoughts</div>
+        <%- include("partials/newMessage") %>
+    <% } else {%>
+        <div>Want to contribute?</div>
+        <% if(!user.member_status){ %>
+            <a href="">Become a member</a>
+        <% }else{ %>
+            <a href="/sign-up">Join us</a>
+      <% } %>
+    <% } %>
 </body>
 </html>

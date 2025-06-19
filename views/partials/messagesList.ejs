@@ -1,0 +1,13 @@
+<% messages.map(message => { %>
+    <div class="message">
+        <p><%= message.username %>:</p>
+        <h4><%= message.title %></h4>
+        <p><%= message.body %></p>
+        <p><%= message.date_time %></p>
+        <% if(user.admin){%>
+            <form action="/messages/<%= message.id %>/delete" method="post">
+                <button>Remove Post</button>
+            </form>
+        <% } %>
+    </div>
+<% }) %>

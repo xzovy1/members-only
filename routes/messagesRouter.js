@@ -6,5 +6,7 @@ messagesRouter.get('/', messagesController.messagesListGet);
 
 messagesRouter.post('/new', messagesController.newMessagePost);
 
+messagesRouter.post('/:id/delete', messagesController.deleteMessagePost)
+
 
 module.exports = messagesRouter;
