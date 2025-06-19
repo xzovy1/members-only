@@ -1,16 +1,23 @@
 const db = require("../db/queries");
 const bcrypt = require('bcryptjs');
+const passport = require('../passport')
+
+
+//note that loginPost is NOT a function.
+exports.loginPost = passport.authenticate("local", {
+        successRedirect: "/",
+        failureRedirect: "/"
+});
 
 exports.loginGet = async (req, res) => {
-    res.render("index", {form: "login"});
+    res.render("index", {form: "login", user: res.locals.user});
 }
-exports.loginPost = async (req, res) => {
 
-}
 
 exports.createUserGet = async (req, res) => {
     res.render("index", {form: "createUser"});
 }
+
 exports.createUserPost = async (req, res, next) => {
     try{
         const {username, firstName, lastName} = req.body;

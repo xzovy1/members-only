@@ -8,10 +8,17 @@
 </head>
 <body>
     <% if( locals.user ){ %>
-        <h1>Welcome back, friend.</h1>
+        <h1>Welcome back, <%= user.first_name %></h1>
+        <% if(user.member_status) { %>
+            <div>You are a member of this secret club</div>
+        <% } else { %>
+
+            <a href="">Join the club</a>
+            
+        <% } %>
         <a href="">Post a message</a>
         <a href="">View the message board</a>
-    <% } else { %>
+    <% } else if(locals.form) { %>
         <%- include("partials/" + form) %>
     <% } %>
         
