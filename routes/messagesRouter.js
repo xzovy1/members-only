@@ -4,5 +4,7 @@ const messagesRouter = Router();
 
 messagesRouter.get('/', messagesController.messagesListGet);
 
+messagesRouter.post('/new', messagesController.newMessagePost);
+
 
 module.exports = messagesRouter;

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+</head>
+<body>
+    <% if(messages.length > 0){ %>
+        <h1>Messages</h1>
+        <div class="messages">
+
+           <% messages.map(message => { %>
+                <div class="message">
+                    <p><%= message.username %>:</p>
+                    <h4><%= message.title %></h4>
+                    <p><%= message.body %></p>
+                    <p><%= message.date_time %></p>
+                </div>
+           <% }) %>
+        </div>
+   <% } else { %>
+    <h1>No Messages</h1>
+    <div>Share your thoughts</div>
+    <% } %>
+    <%- include("partials/newMessage") %>
+</body>
+</html>

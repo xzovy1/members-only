@@ -1,4 +1,4 @@
-const db = require("../db/queries");
+const db = require("../db/userQueries");
 const bcrypt = require('bcryptjs');
 const passport = require('../passport')
 
