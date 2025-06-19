@@ -8,7 +8,7 @@
 </head>
 <body>
     <p>Signed in as: <%= user.username %></p>
-    <% if(messages.length > 0){ %>
+    <% if(hasMessages){ %>
         <h1>Messages</h1>
         <div class="messages">
           <%- include("partials/messagesList") %>
@@ -17,18 +17,18 @@
         <h1>No Messages</h1>
     <% } %>
     
-    <% if(user.member_status){ %>
-        <div>Share your thoughts</div>
+    <% if(canPostMessages){ %>
+        <h3>Share your thoughts</h3>
         <%- include("partials/newMessage") %>
     <% } else {%>
         <div>Want to contribute?</div>
-        <% if(!user.member_status && user.username !== 'guest'){ %>
-            <a href="">Become a member</a>
+        <% if(isGuest) {%>
+            <a href="<%= membershipAction.link %>"><%= membershipAction.text %></a>
         <% }else{ %>
             <a href="/sign-up">Join us</a>
       <% } %>
     <% } %>
-    <% if(user.username !== 'guest'){ %>
+    <% if(!isGuest){ %>
         <a href="/log-out">Log out</a>
    <% } %>
 </body>

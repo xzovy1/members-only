@@ -2,14 +2,20 @@ const db = require('../db/messageQueries');
 
 exports.messagesListGet = async (req, res) => {
     const messages = await db.getAllMessages();
-    let user;
-    if(res.locals.user){
-        user = res.locals.user;
-    }else {
-        user = {username: 'guest', admin: false, is_member: false}
+    const user = res.locals.user || {username: 'guest', admin: false, member_status: false};
+
+    const viewData = {
+        user,
+        messages,
+        hasMessages: messages.length > 0,
+        canPostMessages: user.member_status,
+        isGuest: user.username === 'guest',
+        membershipAction:{
+            link: user.username === 'guest' ? '/sign-up': '/become-member',
+            text: user.username == 'guest' ? 'Join us' : 'Become a member'
+        }
     }
-    console.log(user)
-    res.render("messages", {messages: messages, user: user})
+    res.render("messages", viewData)
 }
 
 exports.newMessagePost = async (req, res) => {
