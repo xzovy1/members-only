@@ -12,4 +12,13 @@ usersRouter.post("/", usersController.loginPost);
 usersRouter.get("/sign-up", usersController.createUserGet);
 usersRouter.post("/sign-up", usersController.createUserPost);
 
+usersRouter.get("/log-out", (req, res, next) => {
+    req.logout((err) => {
+        if(err){
+            return next(err);
+        }
+        res.redirect("/");
+    })
+})
+
 module.exports = usersRouter;

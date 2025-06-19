@@ -15,6 +15,7 @@
     <% } else { %>
         <h1>No Messages</h1>
     <% } %>
+    
     <% if(user.member_status){ %>
         <div>Share your thoughts</div>
         <%- include("partials/newMessage") %>
@@ -26,5 +27,8 @@
             <a href="/sign-up">Join us</a>
       <% } %>
     <% } %>
+    <% if(user.username !== 'guest'){ %>
+        <a href="/log-out">Log out</a>
+   <% } %>
 </body>
 </html>
