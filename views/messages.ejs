@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css" >
     <title>Messages</title>
 </head>
 <body>
@@ -12,14 +13,14 @@
           <%- include("partials/messagesList") %>
         </div>
     <% } else { %>
-    <h1>No Messages</h1>
+        <h1>No Messages</h1>
     <% } %>
-    <% if(user.is_member){ %>
+    <% if(user.member_status){ %>
         <div>Share your thoughts</div>
         <%- include("partials/newMessage") %>
     <% } else {%>
         <div>Want to contribute?</div>
-        <% if(!user.member_status){ %>
+        <% if(!user.member_status && user.username !== 'guest'){ %>
             <a href="">Become a member</a>
         <% }else{ %>
             <a href="/sign-up">Join us</a>

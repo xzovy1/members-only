@@ -14,7 +14,8 @@ exports.messagesListGet = async (req, res) => {
 
 exports.newMessagePost = async (req, res) => {
     const {title, body} = req.body;
-    const userId = res.locals.user;
+    const userId = res.locals.user.id;
+    console.log(title, body, userId)
     await db.addNewMessage(title, body, userId)
     res.redirect('/messages')
 }
