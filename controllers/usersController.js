@@ -29,3 +29,21 @@ exports.createUserPost = async (req, res, next) => {
     }
     res.redirect('/')
 }
+
+exports.joinGet = async (req, res) => {
+    if(!req.user){
+        return res.redirect('/')
+    }
+    res.render('index', {form: 'join', url : req.url})
+}
+
+exports.joinPost = async (req, res) => {
+    const possibleAnswers = ['odin', 'top', 'the odin project'];
+    const response = req.body["secret-answer"];
+    const {id} = req.user
+    console.log(response, id)
+    if(possibleAnswers.includes(response.toLowerCase())){
+        await db.invokeMembership(id);
+    }
+    res.redirect('/')
+}

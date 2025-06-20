@@ -1,7 +1,7 @@
 const pool = require('./pool');
 
 exports.getAllMessages = async () => {
-    const { rows } = await pool.query("SELECT title, body, date_time, username, first_name, last_name, messages.id FROM messages LEFT JOIN users ON users.id = messages.fk_users"); 
+    const { rows } = await pool.query("SELECT title, body, date_time, username, first_name, last_name, messages.id FROM messages LEFT JOIN users ON users.id = messages.fk_users ORDER BY date_time DESC"); 
     return rows;
 }
 

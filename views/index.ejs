@@ -12,14 +12,18 @@
         <% if(user.member_status) { %>
             <div>You are a member of this secret club</div>
         <% } else { %>
+            <% if(locals.url == '/join'){ %>
+                <%- include("partials/" + form) %>
+            <% } else { %>
+                <div>You are not yet a member.</div>
+                <a href="/join">Join the club</a>
 
-            <a href="">Join the club</a>
-
+            <% } %>
         <% } %>
         <a href="/messages">View the message board</a>
     <% } else if(locals.form) { %>
         <%- include("partials/" + form) %>
     <% } %>
-        
+            
 </body>
 </html>

@@ -12,6 +12,9 @@ usersRouter.post("/", usersController.loginPost);
 usersRouter.get("/sign-up", usersController.createUserGet);
 usersRouter.post("/sign-up", usersController.createUserPost);
 
+usersRouter.get('/join', usersController.joinGet);
+usersRouter.post('/join', usersController.joinPost);
+
 usersRouter.get("/log-out", (req, res, next) => {
     req.logout((err) => {
         if(err){

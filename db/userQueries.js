@@ -5,5 +5,5 @@ exports.addUser = async (username, firstName, lastName, password) => {
 }
 
 exports.invokeMembership = async (id) => {
-    await pool.query("ALTER TABLE users ALTER COLUMN member_status = true WHERE id = $1", [id])
+    await pool.query("UPDATE users SET member_status = true WHERE id = $1", [id])
 }
