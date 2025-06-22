@@ -21,11 +21,11 @@
         <h3>Share your thoughts</h3>
         <%- include("partials/newMessage") %>
     <% } else {%>
-        <div>Want to contribute?</div>
+        <div>Want to share your thoughts?</div>
         <% if(isGuest) {%>
             <a href="<%= membershipAction.link %>"><%= membershipAction.text %></a>
         <% }else{ %>
-            <a href="/join">Join us</a>
+            <a href="/join">Join the club</a>
       <% } %>
     <% } %>
     <% if(!isGuest){ %>

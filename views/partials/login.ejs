@@ -1,13 +1,18 @@
     <div class="partial" id="loginPartial">
-        <h1>Log in</h1>
-        <form action="/" method="POST">
-            <label for="username">Username</label>
-            <input id="username" name="username" placeholder="username" type="text" autocomplete="username" />
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" autocomplete="current-password" />
-            <button type="submit">Log In</button>
-        </form>
-        <a href="/sign-up">Not a member? Sign up</a>
-        <p>Or:</p>
-        <a href="/messages">Read messages here</a>
+        <div class="member-access">
+            <h1> Message Board Log in</h1>
+            <form action="/" method="POST">
+                <label for="username">Username</label>
+                <input id="username" name="username" placeholder="username" type="text" autocomplete="username" />
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" />
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+        <div class="non-member-access">
+            <h4>Not a member?</h4>
+            <a href="/sign-up">Sign up</a>
+            <p>Or</p>
+            <a href="/messages">Read messages anonymously</a>
+        </div>
     </div>

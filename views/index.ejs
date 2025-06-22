@@ -16,11 +16,13 @@
                 <%- include("partials/" + form) %>
             <% } else { %>
                 <div>You are not yet a member.</div>
+                <div>Only members can post messages.</div>
                 <a href="/join">Join the club</a>
 
             <% } %>
         <% } %>
         <a href="/messages">View the message board</a>
+        <a href="/log-out">Log out</a>
     <% } else if(locals.form) { %>
         <%- include("partials/" + form) %>
     <% } %>
