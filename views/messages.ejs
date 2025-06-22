@@ -7,7 +7,12 @@
     <title>Messages</title>
 </head>
 <body>
-    <p>Signed in as: <%= user.username %></p>
+    <div>
+        <p>Signed in as: <%= user.username %></p>
+        <% if(!isGuest){ %>
+            <a href="/log-out">Log out</a>
+        <% } %>
+    </div>
     <% if(hasMessages){ %>
         <h1>Messages</h1>
         <div class="messages">
@@ -29,8 +34,6 @@
             <a href="/join">Join the club</a>
       <% } %>
     <% } %>
-    <% if(!isGuest){ %>
-        <a href="/log-out">Log out</a>
-   <% } %>
+
 </body>
 </html>
