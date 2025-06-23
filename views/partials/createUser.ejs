@@ -2,16 +2,17 @@
       <h1>Sign Up</h1>
       <form action="/sign-up" method="POST">
         <label for="firstName">First name</label>
-        <input type="text" name="firstName" id="firstName">
+        <input type="text" name="firstName" id="firstName" required>
         <label for="lastName">Last name</label>
-        <input type="text"  name="lastName" id="lasName" >
+        <input type="text"  name="lastName" id="lastName" required >
         <label for="username">Username</label>
-        <input id="username" name="username" placeholder="username" type="text" autocomplete="username"/>
+        <input id="username" name="username" placeholder="username" type="text" autocomplete="username" required/>
         <label for="password">Password</label>
-        <input id="password" name="password" type="password" autocomplete="new-password"/>
+        <input id="password" name="password" type="password" autocomplete="new-password" required/>
         <label for="passwordConfirm">Confirm Password</label>
-        <input id="password-confirm" name="passwordConfirm" type="password" autocomplete="new-password"/>
+        <input id="password-confirm" name="passwordConfirm" type="password" autocomplete="new-password" required/>
         <button type="submit">Sign Up</button>
+        <%- include("errors") %>
         </form>
         <a href="/">Already with us? Log in!</a>
     </div>

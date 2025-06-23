@@ -1,24 +1,34 @@
 const db = require("../db/userQueries");
 const bcrypt = require('bcryptjs');
-const passport = require('../passport')
+const passport = require('../passport');
+const { validationResult } = require("express-validator");
+const validate = require("./validation")
 
 
-//note that loginPost is NOT a function.
+//note that loginPost is passport.authenticate.
 exports.loginPost = passport.authenticate("local", {
         successRedirect: "/",
-        failureRedirect: "/"
+        failureRedirect: "/",
+        failureMessage: true
 });
+
 
 exports.loginGet = async (req, res) => {
     res.render("index", {form: "login", user: res.locals.user});
 }
 
-
 exports.createUserGet = async (req, res) => {
     res.render("index", {form: "createUser"});
 }
 
-exports.createUserPost = async (req, res, next) => {
+exports.createUserPost = [
+    validate.newUser,
+    async (req, res, next) => {
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            const newUser = req.body
+            return res.status(400).render("index", {form: "createUser", errors: errors.array(), newUser: newUser})
+        }
     try{
         const {username, firstName, lastName} = req.body;
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -28,7 +38,7 @@ exports.createUserPost = async (req, res, next) => {
         next(err);
     }
     res.redirect('/')
-}
+}]
 
 exports.joinGet = async (req, res) => {
     if(!req.user){
