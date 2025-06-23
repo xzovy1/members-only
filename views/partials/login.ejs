@@ -1,6 +1,6 @@
     <div class="partial" id="loginPartial">
         <div class="member-access">
-            <h1> Message Board Log in</h1>
+            <h1> Members Only Log in</h1>
             <form action="/" method="POST">
                 <label for="username">Username</label>
                 <input id="username" name="username" placeholder="username" type="text" autocomplete="username" />
@@ -8,7 +8,7 @@
                 <input id="password" name="password" type="password" autocomplete="current-password" />
                 <button type="submit">Log In</button>
             </form>
-            <%- include("errors") %>
+            <%- include("errors", {passportErrors: passportErrors}) %>
         </div>
         <div class="non-member-access">
             <h4>Not a member?</h4>

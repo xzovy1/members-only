@@ -2,18 +2,13 @@ const { Router } = require('express');
 const usersController = require('../controllers/usersController');
 const { body, validationResult } = require('express-validator');
 const usersRouter = Router();
-const passport = require('../passport')
 
 
 usersRouter.get("/", usersController.loginGet);
 
+
 //passport.authenticate function
 usersRouter.post("/", usersController.loginPost);
-usersRouter.use((req, res, next)=> {
-    console.log(res);
-
-    next();
-})
 
 usersRouter.get("/sign-up", usersController.createUserGet);
 usersRouter.post("/sign-up", usersController.createUserPost);

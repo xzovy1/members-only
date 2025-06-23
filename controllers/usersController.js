@@ -9,12 +9,12 @@ const validate = require("./validation")
 exports.loginPost = passport.authenticate("local", {
         successRedirect: "/",
         failureRedirect: "/",
-        failureMessage: true
+        failureMessage: true,
 });
 
 
 exports.loginGet = async (req, res) => {
-    res.render("index", {form: "login", user: res.locals.user});
+    res.render("index", {form: "login", user: res.locals.user, passportErrors: res.locals.messages});
 }
 
 exports.createUserGet = async (req, res) => {
@@ -27,7 +27,7 @@ exports.createUserPost = [
         const errors = validationResult(req);
         if(!errors.isEmpty()){
             const newUser = req.body
-            return res.status(400).render("index", {form: "createUser", errors: errors.array(), newUser: newUser})
+            return res.status(400).render("index", {form: "createUser", errors: errors.array()})
         }
     try{
         const {username, firstName, lastName} = req.body;

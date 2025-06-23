@@ -49,7 +49,8 @@ exports.login = [
     body("password")
         .trim()
         .notEmpty().withMessage("Password cannot be empty")
-        .isLength({min: 8}).withMessage("password must be at least 8 characters long"),
-]
+        // .isLength({min: 8}).withMessage("password must be at least 8 characters long")
+        
+    ]       
 
 

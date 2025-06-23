@@ -5,3 +5,8 @@
        <% }); %>
     </ul>
 <% } %>
+
+<% if(locals.passportErrors){ %>
+    <% console.log(locals.passportErrors) %>
+    <div style="color: red;"><%= passportErrors[passportErrors.length - 1] %></div>
+<% } %>
