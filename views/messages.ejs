@@ -29,7 +29,7 @@
         <h3>Share your thoughts</h3>
         <%- include("partials/newMessage") %>
     <% } else {%>
-        <div class="sign-up mouseable">
+        <div class="sign-up mouseable transition-background">
         <% if(isGuest) {%>
             <p>Want to see what <br> everyone is talking about?</p>
             <a href="<%= membershipAction.link %>"><%= membershipAction.text %></a>

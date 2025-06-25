@@ -33,7 +33,7 @@ body{
 }
 
 .mouseable{
-    transition: box-shadow .7s ease-in-out;
+    transition: box-shadow .6s ease-in-out;
     box-shadow: none;
 }
 
@@ -63,7 +63,7 @@ body{
     background-color: rgb(255, 221, 159);
     text-align: center;
     align-content: center;
-    padding: 0 1rem ;
+    padding: 1rem ;
 }
 
 .new-message{
@@ -78,6 +78,14 @@ body{
     overflow-y: scroll;
 }
 
+.transition-background{
+    transition: all 1s ease-in-out;
+    border-radius: 1em;
+}
+
+.transition-background:hover{
+    background-color: white;
+}
 
 .message{
     padding: 1rem;
@@ -100,6 +108,7 @@ button{
     border: none;
     /* border-radius: 5px; */
     background-color: rgb(199, 112, 239);
+    transition: background-color .1s ease-in-out;
 }
 button:hover{
     background-color: rgb(240,112,240);
