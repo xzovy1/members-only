@@ -76,6 +76,7 @@ body{
     display: grid;
     gap: 10px;
     overflow-y: scroll;
+    max-height: 60vh;
 }
 
 .transition-background{
