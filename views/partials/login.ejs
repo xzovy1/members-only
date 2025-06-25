@@ -1,19 +1,17 @@
-    <div class="partial" id="loginPartial">
-        <div class="member-access">
-            <h1> Members Only Log in</h1>
-            <form action="/" method="POST">
-                <label for="username">Username</label>
-                <input id="username" name="username" placeholder="username" type="text" autocomplete="username" />
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password" autocomplete="current-password" />
-                <button type="submit">Log In</button>
-            </form>
-            <%- include("errors", {passportErrors: passportErrors}) %>
-        </div>
-        <div class="non-member-access">
-            <h4>Not a member?</h4>
-            <a href="/sign-up">Sign up</a>
-            <p>Or</p>
-            <a href="/messages">Read messages anonymously</a>
-        </div>
-    </div>
+<h1> Members Only Log in</h1>
+<div class="member-access mouseable">
+    <form action="/" method="POST">
+        <label for="username">Username</label>
+        <input id="username" name="username" placeholder="username" type="text" autocomplete="username" />
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" />
+        <button type="submit">Log In</button>
+    </form>
+    <%- include("errors", {passportErrors: passportErrors}) %>
+</div>
+<div class="non-member-access mouseable">
+    <h4>Not a member?</h4>
+    <a href="/sign-up">Sign up</a>
+    <p>Or</p>
+    <a href="/messages">Read messages anonymously</a>
+</div>

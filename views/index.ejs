@@ -7,25 +7,30 @@
     <title>Members Only</title>
 </head>
 <body>
+    <div class="partial">
     <% if( locals.user ){ %>
-        <h1>Welcome back, <%= user.first_name %></h1>
+        <h1 class="mouseable">Welcome back, <%= user.first_name %></h1>
         <% if(user.member_status) { %>
-            <div>You are a member of this secret club</div>
+            <div class="user-info mouseable">You are a member of this secret club</div>
         <% } else { %>
             <% if(locals.url == '/join'){ %>
                 <%- include("partials/" + form) %>
             <% } else { %>
-                <div>You are not yet a member.</div>
-                <div>Only members can post messages.</div>
-                <a href="/join">Join the club</a>
+                <div class="user-info mouseable">You are not yet a member.</div>
+                <div class="member-access mouseable">
+                    <div>Only members can post messages.</div>
+                    <a href="/join">Join the club</a>
+                </div>
 
             <% } %>
         <% } %>
-        <a href="/messages">View the message board</a>
-        <a href="/log-out">Log out</a>
+        <div class="controls mouseable">
+            <a href="/messages">View the message board</a>
+            <a href="/log-out">Log out</a>
+        </div>
     <% } else if(locals.form) { %>
         <%- include("partials/" + form) %>
     <% } %>
-            
+    </div>   
 </body>
 </html>

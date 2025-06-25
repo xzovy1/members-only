@@ -7,33 +7,39 @@
     <title>Messages</title>
 </head>
 <body>
-    <div>
-        <p>Signed in as: <%= user.username %></p>
-        <% if(!isGuest){ %>
-            <a href="/log-out">Log out</a>
-        <% } %>
-    </div>
-    <% if(hasMessages){ %>
-        <h1>Messages</h1>
-        <div class="messages">
-          <%- include("partials/messagesList") %>
-        </div>
+    <div class="partial">
+        <h1 class="mouseable">Messages</h1>
+        <div class="user-info mouseable">
+            <p>Signed in as: <%= user.username %></p>
+            <% if(!isGuest){ %>
+                <a href="/log-out">Log out</a>
+                <% }else { %>
+                    <a href="/">Return to log in</a>
+                <%} %>
+            </div>
+            <% if(hasMessages){ %>
+                <div class="messages mouseable">
+                    <%- include("partials/messagesList") %>
+                </div>
     <% } else { %>
         <h1>No Messages</h1>
     <% } %>
-    
+    <div class="new-message mouseable">
     <% if(canPostMessages){ %>
         <h3>Share your thoughts</h3>
         <%- include("partials/newMessage") %>
     <% } else {%>
+        <div class="sign-up mouseable">
         <% if(isGuest) {%>
-            <div>Want to see what everyone is talking about?</div>
+            <p>Want to see what <br> everyone is talking about?</p>
             <a href="<%= membershipAction.link %>"><%= membershipAction.text %></a>
         <% }else{ %>
             <div>Want to share your thoughts?</div>
             <a href="/join">Join the club</a>
       <% } %>
     <% } %>
-
+    </div>
+    </div>
+    </div>
 </body>
 </html>

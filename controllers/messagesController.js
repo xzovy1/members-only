@@ -25,7 +25,6 @@ exports.messagesListGet = async (req, res) => {
             message.date_time = cipher(message.date_time);
         })
     }
-    console.log(messages)
     const viewData = {
         user,
         messages,
@@ -34,7 +33,7 @@ exports.messagesListGet = async (req, res) => {
         isGuest: user.username === 'guest',
         membershipAction:{
             link: user.username === 'guest' ? '/sign-up': '/become-member',
-            text: user.username == 'guest' ? 'Join us' : 'Become a member'
+            text: user.username == 'guest' ? 'Sign up' : 'Become a member'
         }
     }
     res.render("messages", viewData)
