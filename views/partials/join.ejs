@@ -5,5 +5,10 @@
         <input type="text" name="secret-answer">
         <button type="submit">Submit</button>
     </form>
+    <%if(passed == true){%>
+        <div>Welcome to the club</div>
+    <%}else if(passed == false){%>
+        <div>Wrong Answer</div>
+    <%}%>
 </div>
     <a href="./" class="controls mouseable">Back</a>

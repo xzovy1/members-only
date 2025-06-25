@@ -44,7 +44,7 @@ exports.joinGet = async (req, res) => {
     if(!req.user){
         return res.redirect('/')
     }
-    res.render('index', {form: 'join', url : req.url})
+    res.render('index', {form: 'join', url : req.url, passed: null})
 }
 
 exports.joinPost = async (req, res) => {
@@ -54,6 +54,9 @@ exports.joinPost = async (req, res) => {
     console.log(response, id)
     if(possibleAnswers.includes(response.toLowerCase())){
         await db.invokeMembership(id);
+        res.render('index', {form: 'join', url : req.url, passed: true})
+    }else{
+        res.render('index', {form: 'join', url : req.url, passed: false})
     }
-    res.redirect('/')
+    
 }
