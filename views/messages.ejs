@@ -10,7 +10,7 @@
     <div class="partial">
         <h1 class="mouseable">Messages</h1>
         <div class="user-info mouseable">
-            <p>Signed in as: <%= user.username %></p>
+            <p>Signed in as: <b><%= user.username %></b></p>
             <% if(!isGuest){ %>
                 <a href="/log-out">Log out</a>
                 <% }else { %>
@@ -31,7 +31,7 @@
     <% } else {%>
         <div class="sign-up mouseable transition-background">
         <% if(isGuest) {%>
-            <p>Want to see what <br> everyone is talking about?</p>
+            <p>Want to see what <br> everyone is <i>really</i> saying?</p>
             <a href="<%= membershipAction.link %>"><%= membershipAction.text %></a>
         <% }else{ %>
             <div>Want to share your thoughts?</div>

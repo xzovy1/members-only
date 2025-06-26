@@ -26,7 +26,7 @@ body{
 }
 
 .partial h1 {
-    background-color: rgb(255, 128, 128);
+    background-color: rgb(255, 162, 162);
     text-align: center;
     align-content: center;
     padding: 0.5em;
@@ -79,6 +79,13 @@ body{
     max-height: 60vh;
 }
 
+.message{
+    padding: 1rem;
+    margin: 1em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.15) -1.95px -1.95px 2.6px;
+}
 .transition-background{
     transition: all 1s ease-in-out;
     border-radius: 1em;
@@ -86,14 +93,6 @@ body{
 
 .transition-background:hover{
     background-color: white;
-}
-
-.message{
-    padding: 1rem;
-    margin: 1em;
-    background-color: rgb(255, 255, 255);
-    border-radius: 1em;
-    box-shadow: rgba(0, 0, 0, 0.15) -1.95px -1.95px 2.6px;
 }
 
 form{
@@ -119,4 +118,13 @@ button:hover{
     display: grid;
     grid-template-columns: repeat(2,auto);
     gap: 2rem;
+}
+
+
+::-webkit-scrollbar{
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgba(50, 50, 255, 0.9);
 }
