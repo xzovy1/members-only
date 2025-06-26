@@ -25,10 +25,12 @@ app.use((req, res, next) => {
     res.locals.messages = req.session.messages;
     next();
 })
-
 app.use('/', usersRouter);
 app.use('/messages', messagesRouter);
 
+app.use(( req, res) => {
+    console.log(req.url)
+    res.status(404).render("error", {error: `${req.url} not found`})
+})
 
 app.listen(3000, () => console.log("app listening: http://localhost:3000"));
-
