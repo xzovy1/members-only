@@ -33,4 +33,17 @@
     <% } %>
     </div>   
 </body>
+<script>
+    let items = document.querySelectorAll('.mouseable');
+    let prevNum = Math.floor(Math.random() * items.length)
+    let prevItem;
+    setInterval(()=>{
+        if(prevItem){
+            prevItem.classList.toggle("randomPop");
+        }
+        prevItem = items[prevNum]
+        prevItem.classList.toggle("randomPop");
+        prevNum = Math.floor(Math.random() * items.length)
+    }, 5000)
+</script>
 </html>

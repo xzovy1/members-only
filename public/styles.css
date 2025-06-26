@@ -41,6 +41,11 @@ body{
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 28px, rgba(0, 0, 0, 0.22) 0px 15px 32px;
 }
 
+.randomPop{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 28px, rgba(0, 0, 0, 0.22) 0px 15px 32px;
+}
+
+
 .member-access, .messages{
     background-color: rgb(255, 255, 109);
     padding: 2em;
@@ -120,6 +125,12 @@ button:hover{
     gap: 2rem;
 }
 
+
+.errors{
+    color: red;
+    padding: 1em;
+    position: relative;
+}
 
 ::-webkit-scrollbar{
     background-color: transparent;

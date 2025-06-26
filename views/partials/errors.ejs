@@ -1,12 +1,12 @@
 <%if (locals.errors){%>
     <ul>
         <% errors.forEach(function(error){ %>
-            <li><%= error.msg %></li>
+            <li class="errors"><%= error.msg %></li>
        <% }); %>
     </ul>
 <% } %>
 
 <% if(locals.passportErrors){ %>
     <% console.log(locals.passportErrors) %>
-    <div style="color: red;"><%= passportErrors[passportErrors.length - 1] %></div>
+    <div class="errors"><%= passportErrors[passportErrors.length - 1] %></div>
 <% } %>
