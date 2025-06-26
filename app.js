@@ -29,8 +29,8 @@ app.use('/', usersRouter);
 app.use('/messages', messagesRouter);
 
 app.use(( req, res) => {
-    console.log(req.url)
-    res.status(404).render("error", {error: `${req.url} not found`})
+    console.log(res)
+    res.status(404).render("error", {error: `${req.url}`, code: res.statusCode})
 })
 
 app.listen(3000, () => console.log("app listening: http://localhost:3000"));
