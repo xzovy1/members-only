@@ -45,6 +45,20 @@ body{
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 28px, rgba(0, 0, 0, 0.22) 0px 15px 32px;
 }
 
+.hide{
+    display: none;
+}
+
+.read-more{
+    background-color: transparent;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.read-more:hover{
+    background-color: transparent;
+}
+
 
 .member-access, .messages{
     background-color: rgb(255, 255, 109);

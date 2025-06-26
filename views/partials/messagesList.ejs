@@ -1,7 +1,29 @@
 <% messages.map(message => { %>
-    <div class="message mouseable">
+    <div class="message mouseable" >
         <h3><%= message.title %></h3>
-        <p><%= message.body %></p>
+        <%if(message.body.length > 278){%>
+
+            <div id="<%= message.id %>">
+                <p><%= message.body.slice(0,278)%>...</p>
+                <p class="hidden hide"><%= message.body%></p>
+                <button class="read-more" id="<%= message.id %>" onclick="toggleButton(this.id)">Read more</button>
+            </div>
+            
+            <script>
+                
+                function toggleButton(id){
+                    let parent = document.getElementById(id)
+                    parent.querySelectorAll('p').forEach(child => {
+                        child.classList.toggle('hide')
+                    })
+                    let button = parent.querySelector('button')
+                    button.textContent == 'Read more' ? button.textContent = 'Read less' : button.textContent = 'Read more'
+                }
+            </script>
+            <script src="ejs.min.js"></script>
+        <% }else{ %>
+           <p> <%= messages.body %></p>
+        <% } %>
         <p><%= message.date_time %></p>
         <p>-<%= message.username %></p>
         <% if(user.admin){%>
