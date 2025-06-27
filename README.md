@@ -33,12 +33,12 @@
 
 ## UI/UX
 - landing on sign-up/ sign-in form
-    - sanitized and validated.
-    - confirm password field validated with a custom validator
+    - sanitized and validated. ✅
+    - confirm password field validated with a custom validator  ✅
 - gaining membership: 
     - members gain membership through a 'skill-testing' question. if their answer aligns with a variety of answers they are allowed in. ✅
 - only members can create a new message(only shown when logged in) ✅
-- all messages are displayed on the homepage. 
-    - only display author and date to other club-members. 
-    - perhaps encrypt / cipher the messages for non-members using atbash or something simple.
+- all messages are displayed on the homepage.  ✅
+    - only display author and date to other club-members.  ✅
+    - perhaps encrypt / cipher the messages for non-members using atbash or something simple. ✅
 - only admin can delete messages ✅
