@@ -1,4 +1,10 @@
 # Members Only
+## Screenshots
+![login](/login.png)
+![dashboard](/dashboard.png)
+![ciphered](/ciphered-messages.png)
+![messages](/messages.png)
+![signup](/signup.png)
 ## Goals
 - practice:
     - authentication using bcryptjs, and passport.js
