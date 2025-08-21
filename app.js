@@ -28,8 +28,7 @@ app.use((req, res, next) => {
 app.use('/', usersRouter);
 app.use('/messages', messagesRouter);
 
-app.use(( req, res) => {
-    console.log(res)
+app.use((req, res) => {
     res.status(404).render("error", {error: `${req.url}`, code: res.statusCode})
 })
 
